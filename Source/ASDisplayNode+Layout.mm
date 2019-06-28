@@ -399,6 +399,10 @@ ASLayoutElementStyleExtensibilityForwarding
       [self _u_setNeedsLayoutFromAbove];
       __instanceLock__.lock();
     }
+    
+    // Temporary change. Waiting for new version
+    // Reference: https://github.com/TextureGroup/Texture/pull/1434
+    _pendingDisplayNodeLayout.layout = nil;
 
     // Update the layout's version here because _u_setNeedsLayoutFromAbove calls __setNeedsLayout which in turn increases _layoutVersion
     // Failing to do this will cause the layout to be invalid immediately
